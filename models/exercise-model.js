@@ -9,18 +9,37 @@ const exerciseSchema = new Schema(
         },
         exercises: [
             {
+                type: {
+                    type: String,
+                    trim: true,
+                    required: "Please select a type of exercise."
+                },
                 name: {
                     type: String,
                     trim: true,
-                    required: "Please insert name"
+                    required: "Please select a name for the exercise."
+                },
+                duration: {
+                    type: Number,
+                    trim: true,
+                    required: "Please choose a duration."
                 },
                 weight: {
-                    type: Number
+                    type: Number,
+                    trim: true,
+                },
+                reps: {
+                    type: Number,
+                    trim: true,
+                },
+                sets: {
+                    type: Number,
+                    trim: true,
                 },
                 distance: {
-                    type: Number
+                    type: Number,
+                    trim: true,
                 },
-                // add additional exercises
             }
         ]
     },
@@ -29,3 +48,7 @@ const exerciseSchema = new Schema(
             virtuals: true,
         }
     });
+
+const Exercise = mongoose.model("Exercise", exerciseSchema);
+
+module.exports = Exercise;
