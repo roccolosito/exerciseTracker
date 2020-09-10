@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const Transaction = require("../models/transaction.js");
+const db = require("../models");
 
 router.post("/api/workouts", ({ body }, res) => {
-  Transaction.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+  db.Exercise.create(body)
+    .then(dbWorkouts => {
+      res.json(dbWorkouts);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -12,9 +12,9 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.put("/api/workouts/:id", ({ body }, res) => {
-  Transaction.insertMany(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+  db.Exercise.insertMany(body)
+    .then(dbWorkouts => {
+      res.json(dbWorkouts);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -22,10 +22,10 @@ router.put("/api/workouts/:id", ({ body }, res) => {
 });
 
 router.get("/api/workouts", (req, res) => {
-  Transaction.find({})
+  db.Exercise.find({})
     .sort({ date: -1 })
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+    .then(dbWorkouts => {
+      res.json(dbWorkouts);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -33,10 +33,10 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-    Transaction.find({})
+    db.Exercise.find({})
       .sort({ date: -1 })
-      .then(dbTransaction => {
-        res.json(dbTransaction);
+      .then(dbWorkouts => {
+        res.json(dbWorkouts);
       })
       .catch(err => {
         res.status(400).json(err);
