@@ -49,6 +49,11 @@ const exerciseSchema = new Schema(
         }
     });
 
+// exerciseSchema.virtual('duration').get(function () {
+//     return this.duration.reduce(this.duration.indexOf('@') + 1);
+// });
+
+
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 module.exports = Exercise;
