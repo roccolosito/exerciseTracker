@@ -11,7 +11,7 @@ Deployed app via Heroku: https://frozen-refuge-81665.herokuapp.com/
 
 ## Visuals
 
-![ExerciseGif](./assets/exercise.gif)
+![ExerciseGif](./assets/images/track.gif)
 
 ### Table of Contents
 * [Usage](#Usage)
