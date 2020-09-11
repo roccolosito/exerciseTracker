@@ -49,10 +49,11 @@ const exerciseSchema = new Schema(
         }
     });
 
-// exerciseSchema.virtual('duration').get(function () {
-//     return this.duration.reduce(this.duration.indexOf('@') + 1);
-// });
-
+exerciseSchema.virtual('duration').get(function () {
+    return this.exercises.reduce((total, exercise) => {
+        return total + exercise.duration;
+    }, 0);
+});
 
 const Exercise = mongoose.model("Exercise", exerciseSchema);
 
